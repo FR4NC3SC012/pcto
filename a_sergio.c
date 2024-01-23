@@ -1,35 +1,39 @@
 #include <stdio.h>
-#include <unistd.h>
-
-void clearScreen() {
-    printf("\033[H\033[J");
-}
-
-void spinParrot(int iterations, int delay) {
-    char parrot[] = "v  \\/\n >^)\n   ^\\";
-    int i;
-
-    for (i = 0; i < iterations; i++) {
-        clearScreen();
-        printf("%s\n", parrot);
-        fflush(stdout);
-        usleep(delay * 1000);  // sleep in microseconds
-        // Rotate the parrot by shifting characters
-        char temp = parrot[0];
-        int j;
-        for (j = 0; j < sizeof(parrot) - 1; j++) {
-            parrot[j] = parrot[j + 1];
-        }
-        parrot[sizeof(parrot) - 2] = temp;
-    }
-}
+#include <string.h>
 
 int main() {
-    int iterations = 50;
-    int delay = 100;
+    char choice[50]; 
+    printf("Che sei- uomo o donna?? ");
+    scanf("%s", choice);
+    for (int i = 0; i < strlen(choice); i++) {
+            choice[i] = tolower(choice[i]);
+        }
 
-    spinParrot(iterations, delay);
+    if (strcmp(choice, "uomo"))
+    {
+     
+        printf("sbagliatooo - mi spiace ma mi piace la topa\n");
+    } 
 
+    else  {
+
+        printf("quanti hanni hai? ");
+        scanf(" %d");
+
+    
+        if ("%d" >= 23) 
+        {
+            printf("Non esco con le milf\n");
+        } 
+        else if ("%D" >= 15 && "%d" <= 22) 
+        {
+            printf("Sei proprio patata, dammi l'Instagram\n");
+        } 
+        else 
+        {
+            printf("Mi spiace, ma non rischio le manette\n");
+        }
+   
+    }
     return 0;
 }
-
